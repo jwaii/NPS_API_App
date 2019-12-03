@@ -42,7 +42,9 @@ function formatApiUrl(state, limit=10){
     fetch(Url)
         .then(response => {
             if (response.ok) {
+                console.log('response ok working');
                 return response.json();
+                console.log('response.json working');
             }
             throw new Error(response.status.Text);
         })
