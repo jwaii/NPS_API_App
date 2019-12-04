@@ -2,7 +2,7 @@
 
 //practice leaving notes for self
 
-const apiKey = 'KYMawks2jpDel05cxQgHKKH9OmWfhAxj4yQ9nGrr';
+const apiKey = 'FBe049r5SFNJexyYlNWdK3yefsxXLziaq2qhKTB1';
 const searchURL = 'https://developer.nps.gov/api/v1/parks';
 // https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=KYMawks2jpDel05cxQgHKKH9OmWfhAxj4yQ9nGrr
 // developer.nps.gov/api/v1
@@ -29,7 +29,7 @@ function formatQueryParams(params) {
 
 function formatApiUrl(state, limit=10){
     const params = {
-        key: apiKey,
+        api_key: apiKey,
         stateCode: state,
         maxResults: limit,
     }
@@ -44,21 +44,18 @@ function formatApiUrl(state, limit=10){
             if (response.ok) {
                 console.log('response ok working');
                 return response.json();
-                console.log('response.json working');
             }
             throw new Error(response.status.Text);
         })
-        .then(reponseJson => displayResults(responseJson))
+        .then(data => {displayResults(data)})
         .catch(err => {
             $('js-error-message').text(`Something went wronf: ${err.message}`);
         });
 }
 
-
-
-function getParkResults(){
-
-
+function displayResults(responseJson){
+    console.log("I am displayResults")
+    console.log(responseJson);
 }
 
 
