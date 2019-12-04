@@ -28,10 +28,11 @@ function formatQueryParams(params) {
   */
 
 function formatApiUrl(state, limit=10){
+    console.log(limit)
     const params = {
         api_key: apiKey,
         stateCode: state,
-        maxResults: limit,
+        limit: limit,
     }
     //console.log('params')
     const queryStrings = formatQueryParams(params);
@@ -56,7 +57,14 @@ function formatApiUrl(state, limit=10){
 function displayResults(responseJson){
     console.log("I am displayResults")
     console.log(responseJson);
+    const parkList = responseJson.data
+    for (let i=0; i< parkList.length; i++){
+        console.log(parkList[i])
+        $('.ul-results').append(`<li> <a href="${parkList[i].url}" target="_blank">${parkList[i].fullName}</a> <br> ${parkList[i].description}</li>`);
+    }
 }
+
+
 
 
 function watchForm() {
@@ -66,8 +74,8 @@ function watchForm() {
         const maxResults = $('#js-max-results').val();
         console.log(searchPark, maxResults);
         console.log('watch form working');
+        $('.ul-results').html(" ");
         formatApiUrl(searchPark,maxResults);
-        // function to get NPS Results
     })
 }
 
