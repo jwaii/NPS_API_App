@@ -4,8 +4,6 @@
 
 const apiKey = 'FBe049r5SFNJexyYlNWdK3yefsxXLziaq2qhKTB1';
 const searchURL = 'https://developer.nps.gov/api/v1/parks';
-// https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=KYMawks2jpDel05cxQgHKKH9OmWfhAxj4yQ9nGrr
-// developer.nps.gov/api/v1
 
 console.log('api keys working');
 
@@ -19,13 +17,6 @@ function formatQueryParams(params){
         return queryItems.join('&');
 }
 
-/*
-function formatQueryParams(params) {
-    const queryItems = Object.keys(params)
-      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-    return queryItems.join('&'); // .join will join values by turing value into strings, EX: value1&value2&value3
-  }
-  */
 
 function formatApiUrl(state, limit=10){
     console.log(limit)
@@ -65,9 +56,6 @@ function displayResults(responseJson){
 }
 console.log('Hello world')
 
-
-
-
 function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
@@ -81,16 +69,3 @@ function watchForm() {
 }
 
 $(watchForm);
-
-
-//order 
-    //user form
-    //api
-    //show to user
-
-
-    //url built line 39 "const Url = searchURL+ '?' + queryStrings"
-    //get park results takes 1 argument (Url)  X
-        //Fetch will live here  X
-            //return response in Jsonform  
-            //display results :)
