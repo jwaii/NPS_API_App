@@ -63,6 +63,7 @@ function displayResults(responseJson){
         $('.ul-results').append(`<li> <a href="${parkList[i].url}" target="_blank">${parkList[i].fullName}</a> <br> ${parkList[i].description}</li>`);
     }
 }
+console.log('Hello world')
 
 
 
